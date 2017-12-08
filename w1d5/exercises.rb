@@ -22,10 +22,18 @@ end
 class queue
 
   def initialize
-    @stack = stack
+    @stack = []
   end
 
-  
+  def enqueue
+    stack.push
+  end
 
+  def dequeue
+    stack.shift
+  end
 
+  def show
+    stack
+  end
 end
