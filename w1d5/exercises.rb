@@ -46,12 +46,13 @@ class Map
   end
 
    def assign(key, value)
-     if lookup(key)
-       @map[lookup(key)] = [key, value]
-     else
-       @map << [key, value]
+     @map.each do |subarr|
+       if subarr[0] == key
+         subarr[1] = value
+         return nil
+       end
      end
-     @map
+     @map << [key, value]
    end
 
    def remove(key)
@@ -59,11 +60,18 @@ class Map
    end
 
    def lookup(key)
-     @map.each_with_index { |pair, idx| return idx if pair[0] == key}
+     @map.each_with_index { |pair, idx| return pair[1] if pair[0] == key}
      nil
    end
 
    def show
-     @map.dup
+     deep_dup(@map)
+   end
+
+
+   private
+
+   def deep_dup(arr)
+     arr.map { |el| el.is_a?(Array) ? deep_dup(el) : el}
    end
 end
