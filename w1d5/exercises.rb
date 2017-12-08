@@ -5,15 +5,16 @@ class Stack
   end
 
   def add(el)
-    stack << el
+    @stack << el
+    el
   end
 
   def remove
-    stack.pop
+    @stack.pop
   end
 
   def show
-    stack
+    @stack
   end
 
 end
@@ -22,19 +23,19 @@ end
 class Queue
 
   def initialize
-    @stack = []
+    @queue = []
   end
 
-  def enqueue
-    stack.push
+  def enqueue(el)
+    @queue.push(el)
   end
 
   def dequeue
-    stack.shift
+    @queue.shift
   end
 
   def show
-    stack
+    @queue.dup
   end
 end
 
@@ -50,11 +51,11 @@ class Map
      else
        @map << [key, value]
      end
-     @map 
+     @map
    end
 
    def remove(key)
-     @map.select { |keyval| keyval[0] != key}
+     @map.reject! { |keyval| keyval[0] = key}
    end
 
    def lookup(key)
@@ -63,6 +64,6 @@ class Map
    end
 
    def show
-     @map
+     @map.dup
    end
 end
