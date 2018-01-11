@@ -35,58 +35,58 @@ function isPrime(num) {
 
 
 function firstNPrimes(n) {
-  let primes = []
+  let primes = [];
   
-  for (var i = 2; primes.length < n: i++) {
-    if isPrime(i) {
-      primes.push(i)
+  for (var i = 2; primes.length < n; i++) {
+    if (isPrime(i)) {
+      primes.push(i);
     }
   }
   
-  return primes 
+  return primes ;
 }
 
 
 function sumOfNPrimes(n) {
-  let primes = firstNPrimes(n)
-  let sum = 0
+  let primes = firstNPrimes(n);
+  let sum = 0;
   
   for (var i = 0; i < primes.length; i++) {
-    sum += primes[i]
+    sum += primes[i];
   }
   
-  return sum
+  return sum;
 }
 
 
 
 function titleize(names, callback) {
   let titles = names.map(name => `Mx. ${name} Jingleheimer Schmidt`);
-  callback(titles)
+  callback(titles);
 }
 
 
 titleize(['John','Jacob','Steve'], (names) => {
   names.forEach(name => console.log(name));
-})
+});
 
 
 function Elephant(name, height, tricks) {
-  self.name = name;
-  self.height = height;
+  this.name = name;
+  this.height = height;
   this.tricks = tricks;
 }
 Elephant.prototype.trumpet = function () {
-  console.log(`${name} the elephant goes 'phrRRRRRRRRRRR!!!!!!!`)
+  console.log(`${this.name} the elephant goes 'phrRRRRRRRRRRR!!!!!!!`)
 }
 
 Elephant.prototype.grow = function () {
-  self.height += 2
+  this.height += 12
 }
 
 
-Elephant.prototype.addTrick(trick) = function () {
-  self.trick.push(trick)
+Elephant.prototype.addTrick = function () {
+  this.tricks.push(trick)
 }
 
 Elephant.prototype.play = function () {
@@ -115,5 +115,5 @@ function dinerBreakfast() {
     order = `${order.slice(0, order.length - 8)} and ${food} please.`;
     console.log(order);
   };
-};
+}
 
